@@ -1,9 +1,9 @@
 [Unit]
-Description=Debug Usage (Detailed)
+Description=Debug Usage (Load Average)
 
 [Service]
 Type=simple
-ExecStart=%h/.local/bin/debug-usage detailed 5
+ExecStart=%h/.local/bin/debug-usage load 5
 StandardOutput=journal+console
 
 [Install]

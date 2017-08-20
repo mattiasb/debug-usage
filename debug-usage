@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function __usage {
-    echo "Usage: ${0} uptime   [sleep]"
+    echo "Usage: ${0} load   [sleep]"
     echo "       ${0} detailed [sleep]"
     exit 1
 }
@@ -18,7 +18,7 @@ cmd="${1}"
 sleep="${2:-5}"
 
 case "${cmd}" in
-    uptime)
+    load)
         while true; do
             uptime | cut -f4- -d"," | cut -f 3- -d" "
             sleep "${sleep}"
