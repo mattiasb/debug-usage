@@ -20,7 +20,7 @@ sleep="${2:-5}"
 case "${cmd}" in
     uptime)
         while true; do
-            uptime
+            uptime | cut -f4- -d"," | cut -f 3- -d" "
             sleep "${sleep}"
         done
         ;;
