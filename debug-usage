@@ -1,0 +1,40 @@
+#!/bin/bash
+
+function __usage {
+    echo "Usage: ${0} uptime   [sleep]"
+    echo "       ${0} detailed [sleep]"
+    exit 1
+}
+
+if [ $# -lt 1 ] || [ $# -gt 2 ] ; then
+    __usage
+fi
+
+if [[ " ${@} " == *" --help "* ]] || [[ " ${@} " == *" -h "* ]]; then
+    __usage
+fi
+
+cmd="${1}"
+sleep="${2:-5}"
+
+case "${cmd}" in
+    uptime)
+        while true; do
+            uptime
+            sleep "${sleep}"
+        done
+        ;;
+    detailed)
+        while true; do
+            echo "%CPU %MEM ARGS $(date)"
+            ps -e -o pcpu,pmem,args --sort=pcpu | \
+                cut -d" " -f1-5                 | \
+                tail
+            echo
+            sleep "${sleep}"
+        done
+        ;;
+    *)
+        __usage
+        ;;
+esac

@@ -1,0 +1,6 @@
+[Unit]
+Description=Debug Usage (Uptime)
+
+[Service]
+Type=simple
+ExecStart=%h/.local/bin/debug-usage uptime 5

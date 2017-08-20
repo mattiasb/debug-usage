@@ -1,0 +1,6 @@
+[Unit]
+Description=Debug Usage (Detailed)
+
+[Service]
+Type=simple
+ExecStart=%h/.local/bin/debug-usage detailed 5
